@@ -1,62 +1,125 @@
 <div style="
-  margin: 3rem auto;
-  padding: 1.8rem;
+  margin: 2.5rem auto;
+  padding: 1.2rem 1rem;
   max-width: 640px;
   text-align: center;
-  border-top: 1px solid #6666CC;
-  border-bottom: 1px solid #6666CC;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f5ff;
-  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 ">
-  <p style="margin: 0 0 1.2rem 0; color: #222222; font-size: 1.1rem;">
-    <strong>Share the delusion:</strong>
+  <p style="
+    color: #666666;
+    font-size: 0.95rem;
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+  ">
+    Share the delusion
   </p>
-  <div style="display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap; font-size: 1.8rem; align-items: center;">
-    
-    <!-- WhatsApp (Official Icon via SVG) -->
-    <a href="https://wa.me/?text=Check%20this%20out%3A%20https://punkia.com" 
-       target="_blank" 
-       title="Share on WhatsApp"
-       style="transition: transform 0.2s;"
-       onmouseover="this.style.transform='scale(1.2)'" 
-       onmouseout="this.style.transform='scale(1)'">
-      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" style="display: block;">
-        <path d="M17.999 0C8.06 0 0 8.06 0 17.999c0 9.94 8.06 17.999 17.999 17.999 9.94 0 17.999-8.06 17.999-17.999C35.999 8.06 27.94 0 17.999 0z" fill="#4CAF50"/>
-        <path d="M26.77 19.646c-.498.247-3.03.93-3.47.93-.447 0-1.093-.336-1.48-.673-.413-.358-1.07-.994-1.298-1.2-.23-.206-.467-.358-.93-.358-.466 0-1.005.152-1.514.798-.397.508-.956 1.194-1.153 1.39-.197.205-.404.254-.75.107-.347-.152-1.454-1.068-1.454-2.504 0-1.437.657-2.637 1.48-3.72.73-.958 1.73-2.44 1.968-2.78.237-.34.474-.39.67-.39.2 0 .437.05.67.15.238.094.735.34 1.112.502.377.16.754.24.853.24.1 0 .347-.107.684-.423.337-.317.754-.913.853-1.11.099-.197.3-.474.447-.702.15-.23.2-.34.3-.538.094-.2.047-.377-.023-.538-.075-.16-.66-.152-1.276-.152-.62 0-1.64-.02-2.94-.913-1.07-.73-1.89-1.78-2.128-1.98-.24-.2-.413-.25-.71-.127-.29.127-.994.474-1.514 1.09-.51.616-1.34 1.574-1.34 2.848 0 1.273.92 2.473 1.333 2.98.413.508 2.61 4.09 6.38 5.71.59.26 1.04.41 1.39.51.74.19 1.35.19 1.87.1 0.52-.09.34-.24.49-.34.15-.19.24-.45.34-.75.1-.3.1-1.15.1-1.35z" fill="#FFF"/>
+
+  <div style="
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  ">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/?text=Check%20this%20out%3A%20https://punkia.com"
+       target="_blank"
+       style="
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         background: #4CAF50;
+         transition: all 0.2s ease;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+       "
+       onmouseover="this.style.transform='scale(1.1)';"
+       onmouseout="this.style.transform='scale(1)';"
+       title="Share on WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="display: block;">
+        <path d="M17.499 0C7.56 0 0 7.56 0 17.5c0 9.94 7.56 17.5 17.499 17.5 9.94 0 17.5-7.56 17.5-17.5C34.999 7.56 27.44 0 17.499 0zm8.09 19.05c-.47.24-2.87.9-3.3.9c-.43 0-1.06-.32-1.43-.64c-.4-.34-1.02-1-1.24-1.19c-.22-.19-.44-.34-.88-.34c-.44 0-.96.14-1.45.76c-.38.49-.91 1.15-1.1 1.34c-.19.19-.39.24-.71.1C10.8 20.4 9.7 19.5 9.7 18.1c0-1.37.62-2.52 1.42-3.56c.7-0.92 1.65-2.34 1.88-2.66c.23-.32.45-.37.64-.37c.19 0 .41.05.64.14c.23.09.71.32 1.08.48c.37.15.72.23.81.23c.09 0 .32-.1 0.64-.4c.32-.3.72-.87.81-1.06c.09-.19.28-.45.42-.68c.14-.23.19-.39.28-.57c.09-.19.05-.36-.02-.51c-.07-.15-.63-.15-1.22-.15c-.59 0-1.56-.02-2.81-.88c-1.02-.7-1.8-.1.3-.77c-.23-.2-.39-.25-.67-.12c-.27.12-.95.45-1.45 1.04c-.49.59-1.28 1.51-1.28 2.73c0 1.22.88 2.37 1.27 2.85c.39.48 2.49 3.91 6.1 5.46c.56.25.99.39 1.32.48c.7.18 1.28.18 1.78.09c.5-.08.32-.23.46-.32c.14-.18.23-.43.32-.71c.09-.28.09-1.09.09-1.28z"
+          fill="#fff"/>
       </svg>
     </a>
 
     <!-- X (Twitter) -->
-    <a href="https://x.com/intent/tweet?text=This%20is%20the%20most%20authentic%20corporate%20bullshit%20I've%20ever%20seen.%20%F0%9F%98%B3&url=https://punkia.com" 
-       target="_blank" 
-       style="color: #6666CC; font-size: 1.9rem; transition: transform 0.2s;" 
-       title="Post on X"
-       onmouseover="this.style.transform='scale(1.3)'" 
-       onmouseout="this.style.transform='scale(1)'">
+    <a href="https://x.com/intent/tweet?text=This%20is%20the%20most%20authentic%20corporate%20bullshit%20I've%20ever%20seen.%20%F0%9F%98%B3&url=https://punkia.com"
+       target="_blank"
+       style="
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         background: #6666CC;
+         color: white;
+         font-size: 18px;
+         transition: all 0.2s ease;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+       "
+       onmouseover="this.style.transform='scale(1.1)';"
+       onmouseout="this.style.transform='scale(1)';"
+       title="Post on X">
       𝕏
     </a>
 
     <!-- Facebook -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://punkia.com" 
-       target="_blank" 
-       style="color: #1877f2; font-size: 1.9rem; transition: transform 0.2s;" 
-       title="Share on Facebook"
-       onmouseover="this.style.transform='scale(1.3)'" 
-       onmouseout="this.style.transform='scale(1)'">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://punkia.com"
+       target="_blank"
+       style="
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         background: #1877f2;
+         color: white;
+         font-size: 18px;
+         transition: all 0.2s ease;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+       "
+       onmouseover="this.style.transform='scale(1.1)';"
+       onmouseout="this.style.transform='scale(1)';"
+       title="Share on Facebook">
       f
     </a>
 
     <!-- Email -->
-    <a href="mailto:?subject=Behold%20Corporate%20Genius&body=Check%20this%20out%3A%20https://punkia.com%0A%0A100%25%20authentic.%200%25%20believable." 
-       style="color: #FF00CC; font-size: 1.9rem; transition: transform 0.2s;" 
-       title="Share by Email"
-       onmouseover="this.style.transform='scale(1.3)'" 
-       onmouseout="this.style.transform='scale(1)'">
+    <a href="mailto:?subject=Behold%20Corporate%20Genius&body=Check%20this%20out%3A%20https://punkia.com%0A%0A100%25%20authentic.%200%25%20believable."
+       style="
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         background: #FF00CC;
+         color: white;
+         font-size: 18px;
+         transition: all 0.2s ease;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+       "
+       onmouseover="this.style.transform='scale(1.1)';"
+       onmouseout="this.style.transform='scale(1)';"
+       title="Share by Email">
       ✉️
     </a>
+
   </div>
-  <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #666666;">
-    Spread the gospel of corporate nonsense.
+
+  <p style="
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+  ">
+    Spread the gospel of corporate nonsense
   </p>
 </div>
