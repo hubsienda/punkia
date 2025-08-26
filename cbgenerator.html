@@ -87,21 +87,34 @@
       height: 40px;
       padding: 0 14px;
       border-radius: 12px;
-      background: #111113;
-      color: #f5f5f6;
+      color: white;
       font-weight: 600;
       font-size: 14px;
       text-decoration: none;
       transition: all 0.2s ease;
-      border: 1px solid #2b2b31;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .share-btn:hover {
-      filter: brightness(1.06);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
-    .share-btn.accent {
+    .share-btn.whatsapp {
+      background: #4CAF50;
+    }
+    .share-btn.twitter {
       background: #6666CC;
-      border-color: #6666CC;
-      color: white;
+    }
+    .share-btn.facebook {
+      background: #1877f2;
+    }
+    .share-btn.email {
+      background: #FF00CC;
+    }
+    .share-status {
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #666666;
+      font-style: italic;
     }
   </style>
 </head>
@@ -121,12 +134,12 @@
     <div class="share-container">
       <p>Share the delusion</p>
       <div class="share-buttons">
-        <a href="#" class="share-btn" onclick="copyToClipboard(); return false;">📋 Copy</a>
-        <a href="#" class="share-btn" onclick="shareTwitter(); return false;">𝕏 Twitter</a>
-        <a href="#" class="share-btn accent" onclick="shareWhatsApp(); return false;">🟢 WhatsApp</a>
-        <a href="#" class="share-btn" onclick="shareEmail(); return false;">✉️ Email</a>
+        <a href="#" class="share-btn whatsapp" onclick="shareWhatsApp(); return false;">🟢 WhatsApp</a>
+        <a href="#" class="share-btn twitter" onclick="shareTwitter(); return false;">𝕏 X</a>
+        <a href="#" class="share-btn facebook" onclick="shareFacebook(); return false;">📘 Facebook</a>
+        <a href="#" class="share-btn email" onclick="shareEmail(); return false;">✉️ Email</a>
       </div>
-      <p class="fine-print" id="share-status">Ready.</p>
+      <p class="share-status" id="share-status">Ready.</p>
     </div>
   </div>
 
@@ -181,20 +194,12 @@
     }
 
     // === Share Functions ===
-    function copyToClipboard() {
-      const text = window.generatedStatement || "Check this out from PUNKIA.";
-      const url = "https://punkia.com";
-      const fullText = text + "\n" + url;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(fullText).then(() => {
-          setStatus('Copied to clipboard.');
-          setTimeout(() => setStatus('Ready.'), 2000);
-        }).catch(() => {
-          setStatus('Copy manually.');
-        });
-      } else {
-        setStatus('Copy manually.');
-      }
+    function shareWhatsApp() {
+      const text = encodeURIComponent((window.generatedStatement || "This is the most authentic corporate bullshit I've ever seen.") + "\nhttps://punkia.com");
+      const url = `https://api.whatsapp.com/send?text=${text}`;
+      window.open(url, '_blank');
+      setStatus('Shared on WhatsApp.');
+      setTimeout(() => setStatus('Ready.'), 2000);
     }
 
     function shareTwitter() {
@@ -202,18 +207,24 @@
       const url = encodeURIComponent("https://punkia.com");
       const tweetUrl = `https://x.com/intent/tweet?text=${text}&url=${url}&hashtags=CorporateBullshit`;
       window.open(tweetUrl, '_blank');
+      setStatus('Shared on X.');
+      setTimeout(() => setStatus('Ready.'), 2000);
     }
 
-    function shareWhatsApp() {
-      const text = encodeURIComponent((window.generatedStatement || "This is the most authentic corporate bullshit I've ever seen.") + "\nhttps://punkia.com");
-      const waUrl = `https://api.whatsapp.com/send?text=${text}`;
-      window.open(waUrl, '_blank');
+    function shareFacebook() {
+      const url = encodeURIComponent("https://punkia.com");
+      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      window.open(fbUrl, '_blank');
+      setStatus('Shared on Facebook.');
+      setTimeout(() => setStatus('Ready.'), 2000);
     }
 
     function shareEmail() {
       const subject = encodeURIComponent("Behold Corporate Genius");
       const body = encodeURIComponent("Check this out:\n\n" + (window.generatedStatement || "This is the most authentic corporate bullshit I've ever seen.") + "\n\nhttps://punkia.com\n\n100% authentic. 0% believable.");
       window.location.href = `mailto:?subject=${subject}&body=${body}`;
+      setStatus('Opening email client...');
+      setTimeout(() => setStatus('Ready.'), 2000);
     }
 
     function setStatus(msg) {
@@ -224,6 +235,5 @@
     // Generate on load
     document.addEventListener('DOMContentLoaded', generate);
   </script>
-
 </body>
 </html>
