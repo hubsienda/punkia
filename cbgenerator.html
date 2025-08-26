@@ -61,6 +61,48 @@
       color: #666;
       font-size: 0.95rem;
     }
+
+    /* Share Bar Styles */
+    .share-container {
+      margin-top: 2.5rem;
+      padding: 1.4rem 1rem;
+      text-align: center;
+    }
+    .share-container p {
+      color: #666666;
+      font-size: 0.95rem;
+      margin: 0 0 1.2rem 0;
+      font-weight: 500;
+    }
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 12px;
+      background: #111113;
+      color: #f5f5f6;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid #2b2b31;
+    }
+    .share-btn:hover {
+      filter: brightness(1.06);
+    }
+    .share-btn.accent {
+      background: #6666CC;
+      border-color: #6666CC;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -74,42 +116,45 @@
       Each statement is 100% authentic, ethically untested, and legally non-binding. 
       For investor decks, town halls, and crisis comms.
     </p>
+
+    <!-- Share Bar -->
+    <div class="share-container">
+      <p>Share the delusion</p>
+      <div class="share-buttons">
+        <a href="#" class="share-btn" onclick="copyToClipboard(); return false;">📋 Copy</a>
+        <a href="#" class="share-btn" onclick="shareTwitter(); return false;">𝕏 Twitter</a>
+        <a href="#" class="share-btn accent" onclick="shareWhatsApp(); return false;">🟢 WhatsApp</a>
+        <a href="#" class="share-btn" onclick="shareEmail(); return false;">✉️ Email</a>
+      </div>
+      <p class="fine-print" id="share-status">Ready.</p>
+    </div>
   </div>
 
   <script>
-    // PUNKIA — Corporate Bullshit Generator (Combinatorial Engine)
-    // File: cbgenerator.html
+    // === Generator Logic ===
     const subjects = [
       "We", "We at PUNKIA", "Our ecosystem", "The team", "Our vision", "Our culture", 
       "Our values", "Our innovation pipeline", "The movement", "Our stakeholders",
       "The leadership", "Our agile workforce", "The synergy engine", "Our purpose-driven mission",
       "The disruption architects", "Our human capital", "The KPI optimisers", "Our emotional intelligence framework"
     ];
-
-    const verbs = [
-      "empower", "unlock", "leverage", "champion", "redefine", "scale", "monetise", 
-      "synergise", "orchestrate", "transform", "disrupt", "reimagine", "cultivate", "accelerate"
-    ];
-
+    const verbs = ["empower", "unlock", "leverage", "champion", "redefine", "scale", "monetise", "synergise", "orchestrate", "transform", "disrupt", "reimagine", "cultivate", "accelerate"];
     const objects = [
       "human-centric solutions", "shared value", "agile paradigms", "disruptive innovation", 
       "ecosystems of trust", "scalable purpose", "behavioural data", "emotional capital", 
       "growth mindsets", "sustainable impact", "blockchain-enabled transparency", "passion-driven outcomes"
     ];
-
     const modifiers = [
       "through scalable agility", "via human-first design", "whilst maintaining flexibility", 
       "in a sustainable way", "with heart", "using cutting-edge frameworks", "across silos", 
       "in the metaverse", "on the blockchain", "through strategic pivots", "whilst optimising KPIs", "by rethinking the narrative"
     ];
-
     const clauses = [
       "whilst staying true to our core values", "to drive meaningful change", "for maximum ROI", 
       "without compromising integrity (legally)", "as part of our digital transformation", 
       "because the market demands it", "before the next funding round", "to impress the board", 
       "while avoiding regulation", "in alignment with our ESG goals"
     ];
-
     const escapes = [
       "(terms and conditions apply)", "(subject to change without notice)", "(not a legal commitment)", 
       "(according to our PR team)", "(provided the burn rate allows)", "(we reserve the right to pivot)", 
@@ -127,15 +172,56 @@
         `We don’t do ${pick(['work', 'business', 'tech'])}. We ${pick(verbs)} ${pick(objects)}. ${pick(clauses)} ${pick(escapes)}`,
         `A ${pick(['passion-driven', 'blockchain-enabled', 'human-first'])} ${pick(['ecosystem', 'paradigm', 'framework'])} for ${pick(objects)}. ${pick(clauses)} ${pick(escapes)}`
       ];
-
       const output = document.getElementById('cb-output');
       if (output) {
-        const result = pick(templates);
-        output.textContent = `"${result.replace(/\s+/g, ' ').trim()}"`;
+        const result = pick(templates).replace(/\s+/g, ' ').trim();
+        output.textContent = `"${result}"`;
+        window.generatedStatement = result;
       }
     }
 
-    // Generate one on load
+    // === Share Functions ===
+    function copyToClipboard() {
+      const text = window.generatedStatement || "Check this out from PUNKIA.";
+      const url = "https://punkia.com";
+      const fullText = text + "\n" + url;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullText).then(() => {
+          setStatus('Copied to clipboard.');
+          setTimeout(() => setStatus('Ready.'), 2000);
+        }).catch(() => {
+          setStatus('Copy manually.');
+        });
+      } else {
+        setStatus('Copy manually.');
+      }
+    }
+
+    function shareTwitter() {
+      const text = encodeURIComponent(window.generatedStatement || "This is the most authentic corporate bullshit I've ever seen.");
+      const url = encodeURIComponent("https://punkia.com");
+      const tweetUrl = `https://x.com/intent/tweet?text=${text}&url=${url}&hashtags=CorporateBullshit`;
+      window.open(tweetUrl, '_blank');
+    }
+
+    function shareWhatsApp() {
+      const text = encodeURIComponent((window.generatedStatement || "This is the most authentic corporate bullshit I've ever seen.") + "\nhttps://punkia.com");
+      const waUrl = `https://api.whatsapp.com/send?text=${text}`;
+      window.open(waUrl, '_blank');
+    }
+
+    function shareEmail() {
+      const subject = encodeURIComponent("Behold Corporate Genius");
+      const body = encodeURIComponent("Check this out:\n\n" + (window.generatedStatement || "This is the most authentic corporate bullshit I've ever seen.") + "\n\nhttps://punkia.com\n\n100% authentic. 0% believable.");
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+
+    function setStatus(msg) {
+      const el = document.getElementById('share-status');
+      if (el) el.textContent = msg;
+    }
+
+    // Generate on load
     document.addEventListener('DOMContentLoaded', generate);
   </script>
 
